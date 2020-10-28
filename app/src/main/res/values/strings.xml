@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Revisao26102020_1</string>
+    <string name="nao_socio">Não Sócio</string>
+    <string name="socio">Sócio</string>
+    <string name="labelToolBar">Cadastro</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nome_empresa">Nome/Empresa</string>
+    <string name="campo_obrigatorio">Campo obrigatório</string>
+    <string name="senha_diferente">Senhas preenchidas estão diferentes</string>
+</resources>
