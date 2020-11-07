@@ -10,6 +10,10 @@ class CadastroViewModel : ViewModel() {
     fun setNovoSocio(socio: Socio) {
         socioAtualizado.postValue(socio)
     }
+
+//    fun goToSocio(value: Boolean) {
+//        onDataSaved.postValue()
+//    }
 }
 
 data class Socio(
@@ -17,3 +21,4 @@ data class Socio(
     val email: String,
     val telefone: String
 )
+

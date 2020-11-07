@@ -1,11 +1,15 @@
 package com.example.revisao26102020_1
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputLayout
 
@@ -36,8 +40,15 @@ class NaoSocioFragment : Fragment() {
 
     private fun setupObservables(){
 
+//        buttonCadastrar.isEnabled = textChangedDefault(tietName, tilName, R.string.textInputName, isNameOk) &&
+//                textChangedDefault(tietEmail, tilEmail, R.string.textInputEmail, isEmailOk) &&
+//                textChangedDefault(tietPhone, tilPhone, R.string.textInputPhone, isPhoneOk) &&
+//                textChangedDefault(tietPassword, tilPassword, R.string.textInputPassword, isPasswordOk) &&
+//                confirmPassword(tietConfirmPassword, tietPassword)
+
+        //criar instancia para validar preenchimento e liberar botao para clique
+
         buttonCadastrar.setOnClickListener(){
-            var taTudoCerto = true
             val nome = etNome.editText?.text.toString()
             val email = etEmail.editText?.text.toString()
             val fone = etFone.editText?.text.toString()
@@ -77,8 +88,6 @@ class NaoSocioFragment : Fragment() {
             }
 
 
-            if (taTudoCerto) {
-
                 viewModel.setNovoSocio(
                     Socio(
                         nome = nome,
@@ -86,14 +95,31 @@ class NaoSocioFragment : Fragment() {
                         telefone = fone
                     )
                 )
-            }
-
-//            if(nome.isNullOrBlank())
-
-//                .error = getString(R.string.campo_obrigatorio)
+            
         }
-
     }
+
+    fun textChangedDefault(editText: EditText, textInput: TextInputLayout, errorString: Int, xpto: Boolean): Boolean {
+
+//        Log.i("validaPreenchimento()",validaPreenchimento().toString())
+//        if (!validaPreenchimento()) {
+//            buttonCadastrar.isEnabled = true
+//            viewModel.setNovoSocio(
+//                Socio(
+//                    nome = nome,
+//                    email = email,
+//                    telefone = fone
+//                )
+//            )
+//        } else {
+//            buttonCadastrar.isEnabled = false
+//        }
+
+        return true
+    }
+
+
+
 
     private fun initComponents(){
         activity?.let{
@@ -107,5 +133,14 @@ class NaoSocioFragment : Fragment() {
             etConfSenha = it.findViewById(R.id.textConfSenha)
             buttonCadastrar = it.findViewById(R.id.buttonCadastrar)
         }
+    }
+
+    //it.tabLayout.getTabAt(1).select()
+    // trocar para o próximo fragment
+
+
+
+    fun validaPreenchimento():Boolean{
+        return etNome.isErrorEnabled && etEmail.isErrorEnabled && etFone.isErrorEnabled && etSenha.isErrorEnabled && etConfSenha.isErrorEnabled
     }
 }

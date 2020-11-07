@@ -2,6 +2,9 @@
     <string name="app_name">Revisao26102020_1</string>
     <string name="nao_socio">Não Sócio</string>
     <string name="socio">Sócio</string>
+    <string name="salgados">Salgados</string>
+    <string name="bebidas">Bebidas</string>
+    <string name="lanches">Lanches</string>
     <string name="labelToolBar">Cadastro</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
